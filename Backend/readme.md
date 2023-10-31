@@ -40,8 +40,12 @@
    ```shell
    git clone <repository-url>
 
+2. **Clone the repository:**
 
-Decisions and Assumptions
+   npm install
+3. **Set up your environment variables...:**
+
+ **Decisions and Assumptions**  
 We assume that books are represented as JSON objects with properties like title, author, and summary.
 We use MongoDB as the database for storing book data. The connection string is specified in the .env file.
 We allow cross-origin requests from the specific origin 'https://6541375d6562233dc3c2ea94--visionary-salmiakki-dce795.netlify.app' in the CORS configuration.
