@@ -68,4 +68,17 @@ books.delete("/:bookId", async (req, res) => {
   }
 });
 
+books.delete("/:bookName", async (req, res) => {
+    const bookName = req.params.bookName;
+    try {
+      const deletedBook = await Book.findOneAndDelete({ name: bookName });
+      if (!deletedBook) {
+        return res.status(404).json({ message: "Book not found." });
+      }
+      res.status(200).json({ message: "Book deleted successfully." });
+    } catch (error) {
+      res.status(500).json({ error: "An error occurred while deleting the book." });
+    }
+  });
+
 module.exports = books;
