@@ -52,7 +52,7 @@ MONGO_URI=<your-mongodb-connection-string>
 Start the server:
 npm start
 
-Access the API at http://localhost:6100.
+Access the API at https://clean-crown-duck.cyclic.app/.
 
 Decisions and Assumptions
 We assume that books are represented as JSON objects with properties like title, author, and summary.
