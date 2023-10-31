@@ -1,31 +1,50 @@
-// src/components/ViewBook.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
-function ViewBook({ match }) {
-  const bookId = match.params.id;
+const containerStyle = {
+    backgroundColor: '#f5f5f5',
+    padding: '20px',
+    borderRadius: '5px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+    margin: '20px',
+  };
+  
+  const headingStyle = {
+    color: '#333',
+    fontSize: '24px', 
+    marginBottom: '10px',
+  };
+  
+  const paragraphStyle = {
+    marginBottom: '10px',
+    fontSize: '16px', 
+  };
+  
+
+function ViewBook() {
+  const { id } = useParams();
   const [book, setBook] = useState({});
   const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     async function fetchBook() {
       try {
-        const response = await axios.get(`${baseUrl}/api/books/${bookId}`); // Adjust the URL as per your API endpoints
+        const response = await axios.get(`${baseUrl}/book/${id}`);
         setBook(response.data);
       } catch (error) {
         console.error('Error fetching book:', error);
       }
     }
     fetchBook();
-  }, [bookId]);
+  }, [id]);
 
   return (
-    <div>
-      <h2>Book Details</h2>
-      <p>Title: {book.title}</p>
-      <p>Author: {book.author}</p>
-      <p>Summary: {book.summary}</p>
+    <div style={containerStyle}>
+      <h2 style={headingStyle}>Book Details</h2>
+      <p style={paragraphStyle}>Title: {book.title}</p>
+      <p style={paragraphStyle}>Author: {book.author}</p>
+      <p style={paragraphStyle}>Summary: {book.summary}</p>
     </div>
   );
 }
