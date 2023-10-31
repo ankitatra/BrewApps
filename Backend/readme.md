@@ -1,58 +1,45 @@
-Book Management App
-This is a simple web application for managing books.
 
-Table of Contents
-API Endpoints
-Local Setup
-Decisions and Assumptions
-API Endpoints
-POST /book/add
-Description: Create a new book.
-Request Body: JSON object representing the book.
-Response: The newly created book as JSON.
-Example:
+# Book Management App
 
-{
-  "title": "The Great Gatsby",
-  "author": "F. Scott Fitzgerald",
-  "summary": "A story of decadence, idealism, and excess."
-}
-
-GET /book
-Description: Get a list of all books.
-Response: List of books as JSON.
-Example:
+## Table of Contents
+- [API Endpoints](#api-endpoints)
+- [Local Setup](#local-setup)
+- [Decisions and Assumptions](#decisions-and-assumptions)
 
 
-GET /book/:bookId
-Description: Get details of a specific book by ID.
-Response: Book details as JSON.
+## Access the API at 
+   https://clean-crown-duck.cyclic.app/.
+## API Endpoints
 
-PATCH /book/:bookId
-Description: Update a specific book by ID.
-Request Body: JSON object with updated book data.
+### POST /book/add
+- **Description:** Create a new book.
+- **Request Body:** JSON object representing the book.
+- **Response:** The newly created book as JSON.
 
-DELETE /book/:bookId
-Description: Delete a specific book by ID.
-Response: Success message.
+### GET /book
+- **Description:** Get a list of all books.
+- **Response:** List of books as JSON.
 
+### GET /book/:bookId
+- **Description:** Get a specific book by ID.
+- **Response:** The book as JSON.
 
-Local Setup
-Clone the repository:
-git clone <repository-url>
+### PATCH /book/:bookId
+- **Description:** Update a specific book by ID.
+- **Request Body:** JSON object with book updates.
+- **Response:** The updated book as JSON.
 
-Install dependencies:
-npm install
+### DELETE /book/:bookId
+- **Description:** Delete a specific book by ID.
+- **Response:** A success message.
 
+## Local Setup
 
-Set up your environment variables. Create a .env file in the project root and define the following variables:
-PORT=6100
-MONGO_URI=<your-mongodb-connection-string>
+1. **Clone the repository:**
 
-Start the server:
-npm start
+   ```shell
+   git clone <repository-url>
 
-Access the API at https://clean-crown-duck.cyclic.app/.
 
 Decisions and Assumptions
 We assume that books are represented as JSON objects with properties like title, author, and summary.
